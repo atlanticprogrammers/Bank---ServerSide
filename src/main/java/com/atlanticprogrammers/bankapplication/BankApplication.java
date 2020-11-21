@@ -24,3 +24,28 @@ public class BankApplication {
 		https://www.youtube.com/watch?v=Zyqpo8gxSO0
  * 
  */
+
+/**
+{
+        "banckCode": "1",
+        "name": "HNB Bank",
+        "detailses": [
+            {
+                "detailsId": {
+                    "banckCode": "1",
+                    "loanType": "Home",
+                    "duration": 12
+                },
+                "interestRate": 11.5
+            },
+            {
+                "detailsId": {
+                    "banckCode": "1",
+                    "loanType": "Personal",
+                    "duration": 12
+                },
+                "interestRate": 13.5
+            }
+        ]
+    }
+*/
