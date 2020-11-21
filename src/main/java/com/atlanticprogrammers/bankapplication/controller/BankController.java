@@ -46,7 +46,6 @@ public class BankController {
 	@PutMapping("/bankDetails/{id}")
 	@ResponseStatus(HttpStatus.OK)
 	public void insertBankDetails(@PathVariable(value = "id") String banckCode, @RequestBody List<Details> detailses) {
-		System.out.println("*****************************");
 		Bank bank = bankRepository.findById(banckCode).get();
 		List<Details> CurrentDetailses = bank.getDetailses();
 		for (Details details : detailses) {
