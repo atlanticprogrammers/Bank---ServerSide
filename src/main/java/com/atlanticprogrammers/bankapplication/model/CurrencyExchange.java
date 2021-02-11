@@ -2,145 +2,84 @@ package com.atlanticprogrammers.bankapplication.model;
 
 import java.util.Date;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
 @Table(name = "currencyExchange", catalog = "bank")
 public class CurrencyExchange {
-
+	
 	@Id
-	private String banckName;
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private int id;
+	private String bankName;
+	private String currencyType;
+	private boolean isAvailable;
+	private double sellingRate;
+	private double buyingRate;
+	private Date lastUpdateDate;
 	
-	private boolean usdAvailable;
-	private double usdSellingRate;
-	private double usdBuyingRate;
-	private Date usdLastUpdateDate;
+	public CurrencyExchange() {}
 	
-	private boolean gbpAvailable;
-	private double gbpSellingRate;
-	private double gbpBuyingRate;
-	private Date gbpLastUpdateDate;
+	public CurrencyExchange(String bankName, String currencyType, boolean isAvailable, double sellingRate,
+			double buyingRate, Date lastUpdateDate) {
+		this.bankName = bankName;
+		this.currencyType = currencyType;
+		this.isAvailable = isAvailable;
+		this.sellingRate = sellingRate;
+		this.buyingRate = buyingRate;
+		this.lastUpdateDate = lastUpdateDate;
+	}
 	
-	private boolean euroAvailable;
-	private double euroSellingRate;
-	private double euroBuyingRate;
-	private Date euroLastUpdateDate;
-	
-	public CurrencyExchange() { }
-
-	public String getBanckName() {
-		return banckName;
+	public int getId() {
+		return id;
 	}
-
-	public boolean isUsdAvailable() {
-		return usdAvailable;
+	public void setId(int id) {
+		this.id = id;
 	}
-
-	public void setUsdAvailable(boolean usdAvailable) {
-		this.usdAvailable = usdAvailable;
+	public String getBankName() {
+		return bankName;
 	}
-
-	public double getUsdSellingRate() {
-		return usdSellingRate;
+	public void setBankName(String bankName) {
+		this.bankName = bankName;
 	}
-
-	public void setUsdSellingRate(double usdSellingRate) {
-		this.usdSellingRate = usdSellingRate;
+	public String getCurrencyType() {
+		return currencyType;
 	}
-
-	public double getUsdBuyingRate() {
-		return usdBuyingRate;
+	public void setCurrencyType(String currencyType) {
+		this.currencyType = currencyType;
 	}
-
-	public void setUsdBuyingRate(double usdBuyingRate) {
-		this.usdBuyingRate = usdBuyingRate;
+	public boolean isAvailable() {
+		return isAvailable;
 	}
-
-	public Date getUsdLastUpdateDate() {
-		return usdLastUpdateDate;
+	public void setAvailable(boolean isAvailable) {
+		this.isAvailable = isAvailable;
 	}
-
-	public void setUsdLastUpdateDate(Date usdLastUpdateDate) {
-		this.usdLastUpdateDate = usdLastUpdateDate;
+	public double getSellingRate() {
+		return sellingRate;
 	}
-
-	public boolean isGbpAvailable() {
-		return gbpAvailable;
+	public void setSellingRate(double sellingRate) {
+		this.sellingRate = sellingRate;
 	}
-
-	public void setGbpAvailable(boolean gbpAvailable) {
-		this.gbpAvailable = gbpAvailable;
+	public double getBuyingRate() {
+		return buyingRate;
 	}
-
-	public double getGbpSellingRate() {
-		return gbpSellingRate;
+	public void setBuyingRate(double buyingRate) {
+		this.buyingRate = buyingRate;
 	}
-
-	public void setGbpSellingRate(double gbpSellingRate) {
-		this.gbpSellingRate = gbpSellingRate;
+	public Date getLastUpdateDate() {
+		return lastUpdateDate;
 	}
-
-	public double getGbpBuyingRate() {
-		return gbpBuyingRate;
-	}
-
-	public void setGbpBuyingRate(double gbpBuyingRate) {
-		this.gbpBuyingRate = gbpBuyingRate;
-	}
-
-	public Date getGbpLastUpdateDate() {
-		return gbpLastUpdateDate;
-	}
-
-	public void setGbpLastUpdateDate(Date gbpLastUpdateDate) {
-		this.gbpLastUpdateDate = gbpLastUpdateDate;
-	}
-
-	public boolean isEuroAvailable() {
-		return euroAvailable;
-	}
-
-	public void setEuroAvailable(boolean euroAvailable) {
-		this.euroAvailable = euroAvailable;
-	}
-
-	public double getEuroSellingRate() {
-		return euroSellingRate;
-	}
-
-	public void setEuroSellingRate(double euroSellingRate) {
-		this.euroSellingRate = euroSellingRate;
-	}
-
-	public double getEuroBuyingRate() {
-		return euroBuyingRate;
-	}
-
-	public void setEuroBuyingRate(double euroBuyingRate) {
-		this.euroBuyingRate = euroBuyingRate;
-	}
-
-	public Date getEuroLastUpdateDate() {
-		return euroLastUpdateDate;
-	}
-
-	public void setEuroLastUpdateDate(Date euroLastUpdateDate) {
-		this.euroLastUpdateDate = euroLastUpdateDate;
-	}
-
-	public void setBanckName(String banckName) {
-		this.banckName = banckName;
+	public void setLastUpdateDate(Date lastUpdateDate) {
+		this.lastUpdateDate = lastUpdateDate;
 	}
 
 	@Override
 	public String toString() {
-		return "CurrencyExchange [banckName=" + banckName + ", usdAvailable=" + usdAvailable + ", usdSellingRate="
-				+ usdSellingRate + ", usdBuyingRate=" + usdBuyingRate + ", usdLastUpdateDate=" + usdLastUpdateDate
-				+ ", gbpAvailable=" + gbpAvailable + ", gbpSellingRate=" + gbpSellingRate + ", gbpBuyingRate="
-				+ gbpBuyingRate + ", gbpLastUpdateDate=" + gbpLastUpdateDate + ", euroAvailable=" + euroAvailable
-				+ ", euroSellingRate=" + euroSellingRate + ", euroBuyingRate=" + euroBuyingRate
-				+ ", euroLastUpdateDate=" + euroLastUpdateDate + "]";
+		return "CurrencyExchange [id=" + id + ", bankName=" + bankName + ", currencyType=" + currencyType
+				+ ", isAvailable=" + isAvailable + ", sellingRate=" + sellingRate + ", buyingRate=" + buyingRate
+				+ ", lastUpdateDate=" + lastUpdateDate + "]";
 	}
-
 }
